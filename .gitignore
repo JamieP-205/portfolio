@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Test output
+test-results/
+playwright-report/
+
+# Screenshots and snapshots from Claude Code's browser tool
+.playwright-mcp/
+
+# Local environment files
+.env
+.env.*
+
+# Operating system files
+Thumbs.db
+desktop.ini
+.DS_Store
