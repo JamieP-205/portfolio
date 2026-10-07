@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coast Internet Radio case study – Jamie Parr</title>
+  <meta name="description" content="How I built the website for Coast Internet Radio, a small station in Newry: the problem, what I built, the decisions and trade-offs, and what I'd still improve.">
+  <link rel="canonical" href="https://jamieparr.netlify.app/coast-internet-radio.html">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://jamieparr.netlify.app/coast-internet-radio.html">
+  <meta property="og:title" content="Coast Internet Radio case study – Jamie Parr">
+  <meta property="og:description" content="How I built the website for Coast Internet Radio, a small station in Newry: the problem, what I built, the decisions and trade-offs, and what I'd still improve.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <nav aria-label="Main">
+      <ul class="link-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="intro">
+      <h1>Coast Internet Radio</h1>
+      <p class="lead">The website for Coast Internet Radio, a small station in Newry run by my relative Jim Parr. It has been live since May 2026. I'm the only developer: I built it, host it and maintain it, unpaid.</p>
+      <p>I wrote it using online tutorials, my class notes and AI tools, which helped with debugging, research and some of the more complex code. I set up the hosting on Netlify and the Cloudflare Workers myself.</p>
+      <p><a href="https://coastinternetradio.com">Visit coastinternetradio.com</a></p>
+    </section>
+
+    <div class="project">
+      <figure>
+        <img src="images/coast-old-site.webp" width="1280" height="800" alt="The station's previous website: PRS and PPL licensing logos and Donate and TuneIn buttons across the top of a black page, a list of what's playing now, coming up next and previously played on the left, and a small audio player, a 'Listen To Coast On Any Device Here' link and a Streema listen widget on the right.">
+        <figcaption>Before: the station's previous website.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/coast-internet-radio.webp" width="1280" height="800" alt="The new Coast Internet Radio homepage: a photo of Jim Parr at the microphone beside the station name, with the Listen Live player and play button below.">
+        <figcaption>After: the new site, October 2026.</figcaption>
+      </figure>
+    </div>
+
+    <section>
+      <h2>The problem</h2>
+      <p>The station's previous website offered several separate ways to listen, including a small embedded player, a direct stream link, a Streema widget and a TuneIn button, with no single obvious place to start. It wasn't designed for phones, and its stream was a plain HTTP address.</p>
+      <p>Most of Coast's listeners are middle-aged or older and not especially confident with technology, so the new site had to make listening simple: open the page and press play.</p>
+    </section>
+
+    <section>
+      <h2>What I built</h2>
+      <ul>
+        <li>A live player with one large play button and a volume control</li>
+        <li>Now playing, coming up next and previously played tracks</li>
+        <li>Jim's live show times and an About section</li>
+        <li>Ways to listen on a phone, a smart speaker or in the car</li>
+        <li>Display settings for text size, high contrast, an easier-to-read font, light or dark mode, and reduced motion</li>
+        <li>Song request and feedback forms</li>
+        <li>An admin page where Jim can change content on the site himself</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Decisions</h2>
+      <h3>Designing for the audience</h3>
+      <p>Because most listeners aren't very technical, I kept everything on one page and made listening a single button. I also added text size and contrast options rather than assuming one size suits everyone.</p>
+      <h3>Getting the stream onto an HTTPS site</h3>
+      <p>The station's stream is only available over HTTP, and browsers block HTTP audio on a secure HTTPS page. I set up two small Cloudflare Workers that pass the audio and the track information through over HTTPS. The trade-off is that they're an extra service to keep running, and the site costs money to keep live each month.</p>
+    </section>
+
+    <section>
+      <h2>What went wrong</h2>
+      <p>Showing now playing, coming up next and previously played properly took much more work than I'd planned. My first design also didn't work well. I used AI tools to help fix some of the more awkward layout problems, but I'm still not fully happy with how it looks.</p>
+    </section>
+
+    <section>
+      <h2>How changes are checked</h2>
+      <p>Changes go live as soon as they're saved, for both me and Jim. There's no test copy of the site where changes can be tried first.</p>
+    </section>
+
+    <section>
+      <h2>Limitations and what's next</h2>
+      <ul>
+        <li>The design isn't where I want it to be.</li>
+        <li>The admin page and the listener help feature could both be better.</li>
+        <li>I recently found that the visitor statistics aren't recording properly.</li>
+        <li>I'm planning to rebuild the site from scratch, with a test copy so changes can be checked before they go live.</li>
+      </ul>
+      <p><a href="index.html#projects">Back to all projects</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Jamie Parr</p>
+  </footer>
+</body>
+</html>

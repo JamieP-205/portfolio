@@ -87,6 +87,10 @@ p {
   max-width: var(--measure);
 }
 
+ul {
+  max-width: var(--measure);
+}
+
 a {
   color: inherit;
   text-decoration-color: var(--accent);
