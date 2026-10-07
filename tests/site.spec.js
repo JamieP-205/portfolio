@@ -34,10 +34,10 @@ test('every navigation link on the homepage points to a section', async ({ page 
   }
 });
 
-test('links from the homepage to other pages work', async ({ page, request }) => {
+test('links from the homepage to other pages and files work', async ({ page, request }) => {
   await page.goto('/');
 
-  const hrefs = await page.locator('a[href$=".html"]').evaluateAll((links) =>
+  const hrefs = await page.locator('a[href$=".html"], a[href$=".pdf"]').evaluateAll((links) =>
     links.map((link) => link.getAttribute('href'))
   );
 
