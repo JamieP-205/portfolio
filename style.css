@@ -24,6 +24,18 @@
   --measure: 65ch;
   --page: 62rem;
   --gutter: clamp(1rem, 5vw, 3rem);
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #16191d;
+    --ink: #e9ebee;
+    --muted: #a4acb7;
+    --line: #3a4048;
+    --accent: #f2675b;
+  }
 }
 
 *,
