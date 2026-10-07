@@ -4,7 +4,7 @@ The source for my portfolio website. I'm a second-year Computing Technologies st
 
 ## Status
 
-Early work in progress. The homepage is styled and works on phones and desktops, but the site isn't live yet.
+Live at https://jamieparr.netlify.app. Netlify deploys every push to `main` automatically.
 
 ## How it's built
 
