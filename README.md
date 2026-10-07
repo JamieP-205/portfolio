@@ -4,12 +4,12 @@ The source for my portfolio website. I'm a second-year Computing Technologies st
 
 ## Status
 
-Early work in progress. The site isn't live yet.
+Early work in progress. The homepage content is in place without any styling, and the site isn't live yet.
 
 ## How it's built
 
-Plain HTML, CSS and JavaScript, with no framework and no build step. The site is small, and I want to understand every line of it.
+Plain HTML, CSS and JavaScript, with no framework and no build step.
 
 ## How I use AI on this project
 
-I'm building this myself, with Claude Code to assist wtih debugging and questions: it explains concepts, suggests what to do next and reviews my changes.
+I'm building this step by step using my own knowledge, online sources and AI, which helps explain broken code while I make the changes and commit them. Commit messages will say if Claude Code contributed to code.
