@@ -4,11 +4,11 @@ The source for my portfolio website. I'm a second-year Computing Technologies st
 
 ## Status
 
-Early work in progress. The homepage content is in place without any styling, and the site isn't live yet.
+Early work in progress. The homepage is styled and works on phones and desktops, but the site isn't live yet.
 
 ## How it's built
 
-Plain HTML, CSS and JavaScript, with no framework and no build step.
+Plain HTML and CSS, with no framework and no build step.
 
 ## How I use AI on this project
 
