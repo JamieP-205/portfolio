@@ -1,5 +1,7 @@
 # Portfolio
 
+[![Tests](https://github.com/JamieP-205/portfolio/actions/workflows/test.yml/badge.svg)](https://github.com/JamieP-205/portfolio/actions/workflows/test.yml)
+
 The source for my portfolio website. I'm a second-year Computing Technologies student at Ulster University, and this is where I'll show the projects I've built while I apply for a 2027/28 placement.
 
 ## Status
