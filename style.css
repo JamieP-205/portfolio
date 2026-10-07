@@ -9,6 +9,7 @@
   --paper: #ffffff;
   --ink: #1b1f24;
   --muted: #5b6470;
+  --line: #d7dbe0;
   --accent: #b3261e;
 
   --font: "Atkinson Hyperlegible Next", system-ui, sans-serif;
@@ -140,6 +141,24 @@ main > section {
 
 .lead {
   font-size: 1.25rem;
+}
+
+.project figure {
+  margin: var(--space-3) 0;
+}
+
+.project img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+figcaption {
+  margin-top: var(--space-1);
+  color: var(--muted);
+  font-size: 1rem;
 }
 
 article + article {
