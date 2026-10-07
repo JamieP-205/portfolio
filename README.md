@@ -20,8 +20,11 @@ I'm building this step by step using my own knowledge, online sources and AI, wh
 
 ## Running the tests
 
+```
 npm ci
 npx playwright install chromium
 npm test
-The tests open the site in Chromium and check that it loads without errors, that every navigation link works, that nothing scrolls sideways on phone or desktop widths, that there are no automatically detectable accessibility issues in light or dark mode, and that the 404 page links home.
+```
+
+The tests open each page in Chromium and check that it loads without errors, that the homepage navigation works, that links to the case study and CV work, that nothing scrolls sideways on phone or desktop widths, that there are no automatically detectable accessibility issues in light or dark mode, and that the 404 page links home.
 
