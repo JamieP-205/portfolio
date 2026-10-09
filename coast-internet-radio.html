@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Coast Internet Radio case study – Jamie Parr</title>
-  <meta name="description" content="How I built the website for Coast Internet Radio, a small station in Newry: the problem, what I built, the decisions and trade-offs, and what I'd still improve.">
+  <meta name="description" content="How I built and then rebuilt the website for Coast Internet Radio, a small station in Newry, including an editor so the presenter can change the site himself: the problem, what I built, the decisions and trade-offs, and what I'd still improve.">
   <link rel="canonical" href="https://jamieparr.netlify.app/coast-internet-radio.html">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://jamieparr.netlify.app/coast-internet-radio.html">
   <meta property="og:title" content="Coast Internet Radio case study – Jamie Parr">
-  <meta property="og:description" content="How I built the website for Coast Internet Radio, a small station in Newry: the problem, what I built, the decisions and trade-offs, and what I'd still improve.">
+  <meta property="og:description" content="How I built and then rebuilt the website for Coast Internet Radio, a small station in Newry, including an editor so the presenter can change the site himself.">
   <meta property="og:image" content="https://jamieparr.netlify.app/images/og-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -35,66 +35,94 @@
   <main id="main">
     <section class="intro">
       <h1>Coast Internet Radio</h1>
-      <p class="lead">The website for Coast Internet Radio, a small station in Newry run by my relative Jim Parr. It has been live since May 2026. I'm the only developer: I built it, host it and maintain it, unpaid.</p>
-      <p>I wrote it using online tutorials, my class notes and AI tools, which helped with debugging, research and some of the more complex code. I set up the hosting on Netlify and the Cloudflare Workers myself.</p>
+      <p class="lead">The website for Coast Internet Radio, a small station in Newry run by my relative Jim Parr. I built the first version in May 2026 and rebuilt it from scratch in October 2026. I'm the only developer: I build it, host it and maintain it, unpaid.</p>
+      <p>I wrote the first version using online tutorials, my class notes and AI tools, which helped with debugging, research and some of the more complex code. I rebuilt it and got help from claude code on the more difficult pages like the admin page and some bug fixes. I tested the changes, committed them and deployed them. I also set up the hosting on Netlify and the Cloudflare Workers myself</p>
       <p><a href="https://coastinternetradio.com">Visit coastinternetradio.com</a></p>
     </section>
 
     <div class="project">
       <figure>
-        <img src="images/coast-old-site.webp" width="1280" height="800" alt="The station's previous website: PRS and PPL licensing logos and Donate and TuneIn buttons across the top of a black page, a list of what's playing now, coming up next and previously played on the left, and a small audio player, a 'Listen To Coast On Any Device Here' link and a Streema listen widget on the right.">
-        <figcaption>Before: the station's previous website.</figcaption>
+        <img src="images/coast-old-site.webp" width="1280" height="800" alt="The station's original website: PRS and PPL licensing logos and Donate and TuneIn buttons across the top of a black page, a list of what's playing now, coming up next and previously played on the left, and a small audio player, a 'Listen To Coast On Any Device Here' link and a Streema listen widget on the right.">
+        <figcaption>Before: the station's original website.</figcaption>
       </figure>
       <figure>
-        <img src="images/coast-internet-radio.webp" width="1280" height="800" alt="The new Coast Internet Radio homepage: a photo of Jim Parr at the microphone beside the station name, with the Listen Live player and play button below.">
-        <figcaption>After: the new site, October 2026.</figcaption>
+        <img src="images/coast-first-version.webp" width="1280" height="800" alt="My first version: a dark page with the station name in large serif type beside a photo of Jim Parr at the microphone, a gold Listen Live button and a volume slider below.">
+        <figcaption>My first version, live from May 2026.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/coast-internet-radio.webp" width="1280" height="800" alt="The rebuilt homepage: a navy header with the Coast logo and menu, Jim Parr at the microphone with a red Listen live button, the song playing now with its album cover, what's up next, when Jim is next live, and a row of covers for the songs just played.">
+        <figcaption>The rebuild, live since October 2026.</figcaption>
       </figure>
     </div>
 
     <section>
       <h2>The problem</h2>
-      <p>The station's previous website offered several separate ways to listen, including a small embedded player, a direct stream link, a Streema widget and a TuneIn button, with no single obvious place to start. It wasn't designed for phones, and its stream was a plain HTTP address.</p>
-      <p>Most of Coast's listeners are middle-aged or older and not especially confident with technology, so the new site had to make listening simple: open the page and press play.</p>
+      <p>The station's original website offered several separate ways to listen, including a small embedded player, a direct stream link, a Streema widget and a TuneIn button, with no single obvious place to start. It wasn't designed for phones, and its stream was a plain HTTP address.</p>
+      <p>Most of Coast's listeners are middle-aged or older and not especially confident with technology, so the site had to make listening simple: open the page and press play.</p>
+      <p>My first version fixed the stream and gave the site one Listen button, but I wasn't happy with the design, the admin page could have been much easier for Jim, and every change went live straight away with no way to check it first. So I rebuilt it.</p>
     </section>
 
     <section>
       <h2>What I built</h2>
       <ul>
-        <li>A live player with one large play button and a volume control</li>
-        <li>Now playing, coming up next and previously played tracks</li>
-        <li>Jim's live show times and an About section</li>
-        <li>Ways to listen on a phone, a smart speaker or in the car</li>
-        <li>Display settings for text size, high contrast, an easier-to-read font, light or dark mode, and reduced motion</li>
-        <li>Song request and feedback forms</li>
-        <li>An admin page where Jim can change content on the site himself</li>
+        <li>One large Listen live button, and a player bar at the bottom of every page that opens a full-screen player. The music keeps playing while listeners move between pages.</li>
+        <li>Now playing, up next and the last five songs, with album covers from Apple's iTunes search</li>
+        <li>A tag that shows whether Jim is live or the 24-hour playlist is on, worked out from his show times in UK time</li>
+        <li>Text size buttons and dark mode, remembered on the listener's device</li>
+        <li>Song request and feedback forms that email the station</li>
+        <li>An editor so Jim can change the site himself</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>The editor for Jim</h2>
+      <div class="project">
+        <figure>
+          <img src="images/coast-editor.webp" width="1280" height="800" alt="The editor: on the left, a Words panel with the headline in a text box and a letter count; on the right, a preview of the real website, with the same headline outlined in orange because Jim clicked it.">
+          <figcaption>Clicking the headline in the preview opens it for editing on the left.</figcaption>
+        </figure>
+      </div>
+      <p>Jim isn't confident with computers, so the editor had to be visual rather than a form full of settings. He sees the real website beside a short list of things he can change. Anything with an orange dashed outline can be clicked to edit it, and every change appears in the preview straight away.</p>
+      <ul>
+        <li>He can change the words, the photos, the main colour, the order of the home page, an announcement bar, a news story, his show times and the contact details.</li>
+        <li>An "I'm live now" switch covers extra shows, and "No live show today" covers missed ones. Both switch themselves off, so neither can be left on by mistake.</li>
+        <li>Changes save as a draft while he types. Listeners only see them when he presses Publish and confirms, and Undo goes back up to ten versions.</li>
       </ul>
     </section>
 
     <section>
       <h2>Decisions</h2>
       <h3>Designing for the audience</h3>
-      <p>Because most listeners aren't very technical, I kept everything on one page and made listening a single button. I also added text size and contrast options rather than assuming one size suits everyone.</p>
+      <p>I looked at how stations for older listeners lay out their websites and based the rebuild's structure on Boom Radio's: large readable text, one clear Listen button, and separate pages for shows, the presenter, requests and help. I kept the station's navy and red, and modernised the mast in Jim's original logo rather than replacing it.</p>
       <h3>Getting the stream onto an HTTPS site</h3>
-      <p>The station's stream is only available over HTTP, and browsers block HTTP audio on a secure HTTPS page. I set up two small Cloudflare Workers that pass the audio and the track information through over HTTPS. The trade-off is that they're an extra service to keep running, and the site costs money to keep live each month.</p>
+      <p>The station's stream is only available over HTTP, and browsers block HTTP audio on a secure HTTPS page. I set up two small Cloudflare Workers that pass the audio and the track information through over HTTPS. The trade-off is that they're an extra service to keep running.</p>
+      <h3>Publishing without redeploying</h3>
+      <p>Each deploy on Netlify uses build credits, so publishing doesn't redeploy the site. Jim's changes are stored with Netlify Blobs, and every page loads them from one address that Netlify caches. Publishing clears that cache so listeners see changes straight away. The trade-off is that the site now relies on server functions, so each page is still built with the original wording and works on its own if they're ever down.</p>
+      <h3>Keeping the editor safe</h3>
+      <p>The password is never stored, only a slow scrypt hash of it, and Jim stays signed in with a signed cookie that other websites can't use. Every change is checked on the server before it's saved, so nothing typed into the editor can add code to the page, and uploaded photos are checked to be real images.</p>
     </section>
 
     <section>
       <h2>What went wrong</h2>
-      <p>Showing now playing, coming up next and previously played properly took much more work than I'd planned. My first design also didn't work well. I used AI tools to help fix some of the more awkward layout problems, but I'm still not fully happy with how it looks.</p>
+      <ul>
+        <li>My first design for the rebuild looked generic, so I threw it away and started again from how real stations for older listeners lay out their sites.</li>
+        <li>Netlify rewrites forms when it registers them, and it cut the feedback form's thank-you message off at an apostrophe. I only noticed on the live site.</li>
+        <li>A code review found that words Jim typed while a publish was still sending could be marked as live when they weren't. The fix publishes a copy of the draft, and it was checked by deliberately slowing the request down in a browser test.</li>
+      </ul>
     </section>
 
     <section>
       <h2>How changes are checked</h2>
-      <p>Changes go live as soon as they're saved, for both me and Jim. There's no test copy of the site where changes can be tried first.</p>
+      <p>Code changes are tried locally first with Netlify's dev server, which runs the site and its functions with separate test storage. The server code has 21 unit tests, covering the sign-in, the checks on Jim's changes and the photo uploads. Jim previews every change and confirms it before it goes live, and he can undo it afterwards.</p>
     </section>
 
     <section>
       <h2>Limitations and what's next</h2>
       <ul>
-        <li>The design isn't where I want it to be.</li>
-        <li>The admin page and the listener help feature could both be better.</li>
-        <li>I recently found that the visitor statistics aren't recording properly.</li>
-        <li>I'm planning to rebuild the site from scratch, with a test copy so changes can be checked before they go live.</li>
+        <li>The two main JavaScript files are around 900 lines each and should be split into smaller modules.</li>
+        <li>The tests don't run automatically before each deploy yet.</li>
+        <li>Adding a new piece of text Jim can edit means changing four files.</li>
+        <li>Photos Jim replaces are kept rather than deleted.</li>
       </ul>
       <p><a href="index.html#projects">Back to all projects</a></p>
     </section>
