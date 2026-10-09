@@ -148,6 +148,14 @@ header {
   padding-block: var(--space-1);
 }
 
+/* Keeps the menu on one line on most phones. */
+@media (max-width: 30rem) {
+  header .link-list {
+    column-gap: var(--space-2);
+    font-size: 1rem;
+  }
+}
+
 main > section {
   padding-block: var(--space-4);
 }
